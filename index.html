@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chandan Portfolio</title>
+
+    <!-- Set theme before first paint to avoid a flash -->
+    <script>
+        try {
+            var th = localStorage.getItem('cv-theme');
+            if (!th) th = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', th);
+        } catch (e) { document.documentElement.setAttribute('data-theme', 'dark') }
+    </script>
+
+    <!-- SEO -->
+    <meta name="description"
+        content="Explore the personal portfolio of Chandan Vyas, a Computer Science student and aspiring software developer interested in web development, programming and software solutions.">
+    <meta name="keywords"
+        content="Chandan Vyas, portfolio, terminal portfolio, full stack developer, Java, JavaScript, Python, PHP, Meerut, developer portfolio">
+    <meta name="author" content="Chandan Vyas">
+    <!-- After hosting, uncomment and edit:
+<link rel="canonical" href="https://chandanvyas999.github.io/REPO-NAME/">
+<meta property="og:url" content="https://chandanvyas999.github.io/REPO-NAME/">
+<meta property="og:image" content="https://chandanvyas999.github.io/REPO-NAME/assets/og.png"> -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Chandan Portfolio">
+    <meta property="og:title" content="Chandan Portfolio — Interactive Terminal">
+    <meta property="og:description"
+        content="A fully interactive CLI portfolio. Type commands, explore skills, projects, experience — and even play Snake.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Chandan Portfolio — Interactive Terminal">
+    <meta name="twitter:description"
+        content="A fully interactive CLI portfolio for Chandan Vyas — Full Stack Developer.">
+
+    <script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Chandan Vyas",
+  "email":"mailto:cvhindu999@gmail.com",
+  "telephone":"+91 96802 33136",
+  "address":{"@type":"PostalAddress","addressLocality":"Meerut","addressCountry":"IN"},
+  "jobTitle":"Computer Science Student · Full Stack Developer (aspiring)",
+  "knowsAbout":["Java","JavaScript","Python","PHP","SQL","MySQL","MongoDB","Node.js","Bootstrap","Scikit-learn","Pandas","NumPy","Matplotlib","Seaborn"],
+  "sameAs":[
+    "https://github.com/chandanvyas999",
+    "https://www.linkedin.com/in/chandan-vyas/",
+    "https://www.instagram.com/chandanvyas999",
+    "https://www.x.com/chandanvyas999",
+    "https://www.leetcode.com/chandanvyas999"
+  ]
+}
+</script>
+
+    <!-- Favicon: inline terminal glyph, no extra file needed -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0D10'/%3E%3Cpolyline points='16,20 30,32 16,44' fill='none' stroke='%2322C55E' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='34' y='41' width='16' height='6' rx='2' fill='%2322C55E'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 class="sr-only">Chandan Vyas — Interactive Terminal Portfolio</h1>
+
+    <!-- BOOT SCREEN -->
+    <div id="boot" class="boot" role="status">
+        <div class="boot-inner">
+            <div class="boot-title">chandan<span class="d">.</span>portfolio</div>
+            <div class="boot-bar">
+                <div class="boot-fill" id="bootFill"></div>
+            </div>
+            <div class="boot-log" id="bootLog"></div>
+            <div class="boot-skip" id="bootSkip"></div>
+        </div>
+    </div>
+
+    <!-- TERMINAL -->
+    <main class="stage">
+        <section class="terminal" id="terminal" aria-label="Chandan Vyas interactive terminal portfolio">
+
+            <header class="thead" id="thead">
+                <span class="dot" aria-hidden="true"></span>
+                <span class="t-id">chandan<span class="dotname">.</span>portfolio</span>
+                <span class="t-sep" aria-hidden="true">—</span>
+                <span class="t-status" id="shellStatus"></span>
+                <div class="t-btns">
+                    <button class="tbtn" id="btnLang" aria-label="Switch language">हिं</button>
+                    <button class="tbtn" id="btnTheme" aria-label="Toggle theme" aria-pressed="false" title="theme">
+                        <svg class="ic-sun" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4" />
+                            <line x1="12" y1="2" x2="12" y2="5" />
+                            <line x1="12" y1="19" x2="12" y2="22" />
+                            <line x1="4.2" y1="4.2" x2="6.3" y2="6.3" />
+                            <line x1="17.7" y1="17.7" x2="19.8" y2="19.8" />
+                            <line x1="2" y1="12" x2="5" y2="12" />
+                            <line x1="19" y1="12" x2="22" y2="12" />
+                            <line x1="4.2" y1="19.8" x2="6.3" y2="17.7" />
+                            <line x1="17.7" y1="6.3" x2="19.8" y2="4.2" />
+                        </svg>
+                        <svg class="ic-moon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
+                        </svg>
+                    </button>
+                    <button class="tbtn" id="btnSound" aria-label="Toggle sound effects" aria-pressed="true"
+                        title="sound">
+                        <svg class="ic-on" viewBox="0 0 24 24" aria-hidden="true">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <path d="M15.5 8.5a5 5 0 0 1 0 7" />
+                            <path d="M18.5 5.5a9 9 0 0 1 0 13" />
+                        </svg>
+                        <svg class="ic-off" viewBox="0 0 24 24" aria-hidden="true">
+                            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                            <line x1="16" y1="9" x2="22" y2="15" />
+                            <line x1="22" y1="9" x2="16" y2="15" />
+                        </svg>
+                    </button>
+                    <button class="tbtn" id="btnMin" aria-label="Minimize terminal" title="minimize">
+                        <svg class="ic-col" viewBox="0 0 24 24" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                        <svg class="ic-exp" viewBox="0 0 24 24" aria-hidden="true">
+                            <polyline points="6 15 12 9 18 15" />
+                        </svg>
+                    </button>
+                </div>
+            </header>
+
+            <div class="tbody" id="tbody">
+                <div id="output" role="log" aria-live="polite"></div>
+            </div>
+
+            <div class="chips-bar" id="chipsBar" aria-label="Quick commands"></div>
+
+            <div class="tinput" id="inputLine">
+                <span class="pfx" aria-hidden="true"><span class="pu">chandan@portfolio</span><span
+                        class="pd">:</span><span class="pp">~</span><span class="pd">$</span></span>
+                <input id="cmd" type="text" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"
+                    enterkeyhint="send" aria-label="Terminal command input">
+            </div>
+
+            <footer class="tfoot">
+                <span class="rot"><span class="pre">&gt; </span><span id="rotTitle"></span><span class="caret"
+                        aria-hidden="true">_</span></span>
+                <span class="hints" id="footerHint"></span>
+            </footer>
+        </section>
+    </main>
+
+    <!-- SNAKE GAME -->
+    <div class="game-overlay" id="gameOverlay" hidden role="dialog" aria-modal="true" aria-label="Snake game">
+        <div class="game-panel">
+            <div class="game-head">
+                <span class="g-title">SNAKE.EXE</span>
+                <span class="g-score"><span id="gScoreLbl"></span> <b id="gScore">0</b></span>
+                <span class="g-best"><span id="gBestLbl"></span> <b id="gBest">0</b></span>
+                <div class="g-btns">
+                    <button class="tbtn" id="gPause" aria-label="Pause or resume"><svg viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <line x1="9" y1="5" x2="9" y2="19" />
+                            <line x1="15" y1="5" x2="15" y2="19" />
+                        </svg></button>
+                    <button class="tbtn" id="gRestart" aria-label="Restart game"><svg viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <path d="M3 12a9 9 0 1 0 2.6-6.4" />
+                            <polyline points="3 3 3 8 8 8" />
+                        </svg></button>
+                    <button class="tbtn" id="gClose" aria-label="Close game"><svg viewBox="0 0 24 24"
+                            aria-hidden="true">
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                        </svg></button>
+                </div>
+            </div>
+            <canvas id="gameCanvas" width="340" height="340"></canvas>
+            <div class="dpad">
+                <button class="dp up" data-dir="up" aria-label="Up"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <polyline points="6 15 12 9 18 15" />
+                    </svg></button>
+                <button class="dp left" data-dir="left" aria-label="Left"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <polyline points="6 15 12 9 18 15" />
+                    </svg></button>
+                <button class="dp down" data-dir="down" aria-label="Down"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <polyline points="6 15 12 9 18 15" />
+                    </svg></button>
+                <button class="dp right" data-dir="right" aria-label="Right"><svg viewBox="0 0 24 24"
+                        aria-hidden="true">
+                        <polyline points="6 15 12 9 18 15" />
+                    </svg></button>
+            </div>
+            <div class="g-hint" id="gHint"></div>
+        </div>
+    </div>
+
+    <noscript>
+        <div style="padding:40px;text-align:center">This portfolio is an interactive terminal and needs JavaScript
+            enabled.</div>
+    </noscript>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
